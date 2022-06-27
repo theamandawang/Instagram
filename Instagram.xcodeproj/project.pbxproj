@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F34D2B4286A629A0009DF55 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F34D2B3286A629A0009DF55 /* PostCell.m */; };
 		7F34D2B5286A64100009DF55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F3286A374F00A3A999 /* Assets.xcassets */; };
+		7F34D2B8286A69250009DF55 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F34D2B7286A69250009DF55 /* ComposeViewController.m */; };
 		7FBDB2E9286A374E00A3A999 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2E8286A374E00A3A999 /* AppDelegate.m */; };
 		7FBDB2EC286A374E00A3A999 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2EB286A374E00A3A999 /* SceneDelegate.m */; };
 		7FBDB2FA286A374F00A3A999 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F9286A374F00A3A999 /* main.m */; };
@@ -26,6 +27,8 @@
 		7528903C40B3A2B8959138A1 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		7F34D2B2286A629A0009DF55 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		7F34D2B3286A629A0009DF55 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		7F34D2B6286A69250009DF55 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		7F34D2B7286A69250009DF55 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		7FBDB2E4286A374E00A3A999 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBDB2E7286A374E00A3A999 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7FBDB2E8286A374E00A3A999 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 				7FBDB306286A473A00A3A999 /* LoginViewController.m */,
 				7FBDB308286A4B6B00A3A999 /* HomeViewController.h */,
 				7FBDB309286A4B6B00A3A999 /* HomeViewController.m */,
+				7F34D2B6286A69250009DF55 /* ComposeViewController.h */,
+				7F34D2B7286A69250009DF55 /* ComposeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				7FBDB2E9286A374E00A3A999 /* AppDelegate.m in Sources */,
 				7FBDB2FA286A374F00A3A999 /* main.m in Sources */,
 				7FBDB30A286A4B6B00A3A999 /* HomeViewController.m in Sources */,
+				7F34D2B8286A69250009DF55 /* ComposeViewController.m in Sources */,
 				7FBDB2EC286A374E00A3A999 /* SceneDelegate.m in Sources */,
 				7F34D2B4286A629A0009DF55 /* PostCell.m in Sources */,
 			);
