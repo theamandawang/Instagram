@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		7FBDB2E9286A374E00A3A999 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2E8286A374E00A3A999 /* AppDelegate.m */; };
 		7FBDB2EC286A374E00A3A999 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2EB286A374E00A3A999 /* SceneDelegate.m */; };
-		7FBDB2EF286A374E00A3A999 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2EE286A374E00A3A999 /* ViewController.m */; };
-		7FBDB2F2286A374E00A3A999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F0286A374E00A3A999 /* Main.storyboard */; };
-		7FBDB2F4286A374F00A3A999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F3286A374F00A3A999 /* Assets.xcassets */; };
-		7FBDB2F7286A374F00A3A999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F5286A374F00A3A999 /* LaunchScreen.storyboard */; };
 		7FBDB2FA286A374F00A3A999 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F9286A374F00A3A999 /* main.m */; };
-		7FBDB303286A3B0000A3A999 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB302286A3B0000A3A999 /* Keys.plist */; };
+		7FBDB307286A473A00A3A999 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB306286A473A00A3A999 /* LoginViewController.m */; };
+		7FBDB30A286A4B6B00A3A999 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB309286A4B6B00A3A999 /* HomeViewController.m */; };
+		7FBDB310286A57D700A3A999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F3286A374F00A3A999 /* Assets.xcassets */; };
+		7FBDB311286A57E000A3A999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F0286A374E00A3A999 /* Main.storyboard */; };
+		7FBDB312286A57E000A3A999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F5286A374F00A3A999 /* LaunchScreen.storyboard */; };
+		7FBDB313286A57E600A3A999 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB302286A3B0000A3A999 /* Keys.plist */; };
 		D2B8EA4B3AAE17B5E547DE39 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BF72BA0B206293EA745420 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,14 +28,16 @@
 		7FBDB2E8286A374E00A3A999 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7FBDB2EA286A374E00A3A999 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		7FBDB2EB286A374E00A3A999 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		7FBDB2ED286A374E00A3A999 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7FBDB2EE286A374E00A3A999 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7FBDB2F1286A374E00A3A999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FBDB2F3286A374F00A3A999 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FBDB2F6286A374F00A3A999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FBDB2F8286A374F00A3A999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FBDB2F9286A374F00A3A999 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FBDB302286A3B0000A3A999 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		7FBDB305286A473A00A3A999 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7FBDB306286A473A00A3A999 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7FBDB308286A4B6B00A3A999 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		7FBDB309286A4B6B00A3A999 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +90,11 @@
 		7FBDB2E6286A374E00A3A999 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				7FBDB304286A471100A3A999 /* ViewController */,
 				7FBDB2E7286A374E00A3A999 /* AppDelegate.h */,
 				7FBDB2E8286A374E00A3A999 /* AppDelegate.m */,
 				7FBDB2EA286A374E00A3A999 /* SceneDelegate.h */,
 				7FBDB2EB286A374E00A3A999 /* SceneDelegate.m */,
-				7FBDB2ED286A374E00A3A999 /* ViewController.h */,
-				7FBDB2EE286A374E00A3A999 /* ViewController.m */,
 				7FBDB2F0286A374E00A3A999 /* Main.storyboard */,
 				7FBDB2F3286A374F00A3A999 /* Assets.xcassets */,
 				7FBDB2F5286A374F00A3A999 /* LaunchScreen.storyboard */,
@@ -101,6 +103,17 @@
 				7FBDB302286A3B0000A3A999 /* Keys.plist */,
 			);
 			path = Instagram;
+			sourceTree = "<group>";
+		};
+		7FBDB304286A471100A3A999 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7FBDB305286A473A00A3A999 /* LoginViewController.h */,
+				7FBDB306286A473A00A3A999 /* LoginViewController.m */,
+				7FBDB308286A4B6B00A3A999 /* HomeViewController.h */,
+				7FBDB309286A4B6B00A3A999 /* HomeViewController.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,10 +175,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FBDB303286A3B0000A3A999 /* Keys.plist in Resources */,
-				7FBDB2F7286A374F00A3A999 /* LaunchScreen.storyboard in Resources */,
-				7FBDB2F4286A374F00A3A999 /* Assets.xcassets in Resources */,
-				7FBDB2F2286A374E00A3A999 /* Main.storyboard in Resources */,
+				7FBDB313286A57E600A3A999 /* Keys.plist in Resources */,
+				7FBDB311286A57E000A3A999 /* Main.storyboard in Resources */,
+				7FBDB312286A57E000A3A999 /* LaunchScreen.storyboard in Resources */,
+				7FBDB310286A57D700A3A999 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,9 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FBDB2EF286A374E00A3A999 /* ViewController.m in Sources */,
+				7FBDB307286A473A00A3A999 /* LoginViewController.m in Sources */,
 				7FBDB2E9286A374E00A3A999 /* AppDelegate.m in Sources */,
 				7FBDB2FA286A374F00A3A999 /* main.m in Sources */,
+				7FBDB30A286A4B6B00A3A999 /* HomeViewController.m in Sources */,
 				7FBDB2EC286A374E00A3A999 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
