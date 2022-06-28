@@ -28,7 +28,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     [self.refreshControl addTarget:self action:@selector(queryData) forControlEvents:UIControlEventValueChanged];
-    
+    [self refreshData];
     // Do any additional setup after loading the view.
 }
 - (void) refreshData {

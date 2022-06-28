@@ -93,6 +93,7 @@
 				7F34D2B3286A629A0009DF55 /* PostCell.m */,
 				7FCC065E286AC6C300634104 /* DetailsView.h */,
 				7FCC065F286AC6C300634104 /* DetailsView.m */,
+				7FCC065C286AC68700634104 /* DetailsView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,7 +103,6 @@
 			children = (
 				7F34D2BA286A8F200009DF55 /* Post.m */,
 				7F34D2BD286A8F590009DF55 /* Post.h */,
-				7FCC065C286AC68700634104 /* DetailsView.xib */,
 			);
 			path = Models;
 			sourceTree = "<group>";

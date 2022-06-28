@@ -34,7 +34,14 @@
     [[NSBundle mainBundle] loadNibNamed: @"DetailsView" owner: self options:nil];
     [self addSubview: self.contentView];
     self.contentView.frame = self.bounds;
+    [self loadValues];
     return self;
+}
+- (void) loadValues {
+    self.userLabel.text = self.post[@"user"];
+    self.captionLabel.text = self.post[@"caption"];
+    self.photoImageView.file = self.post[@"image"];
+    [self.photoImageView loadInBackground];
 }
 
 
