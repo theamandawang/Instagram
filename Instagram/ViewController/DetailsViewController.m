@@ -7,6 +7,7 @@
 
 #import "DetailsViewController.h"
 #import "CommentCell.h"
+#import "PostCell.h"
 @interface DetailsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -19,6 +20,9 @@
 //    [self.detailsView loadValues];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    UINib *nib = [UINib nibWithNibName:@"PostCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"PostCell"];
+    [self.tableView setEstimatedRowHeight:200.0];
     [self.tableView reloadData];
     [self.tableView sizeToFit];
     [self.tableView setRowHeight:300.0];
@@ -36,17 +40,20 @@
 */
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *postCell = nil;
+    PostCell *postCell = nil;
     CommentCell *commentCell = nil;
-//    if(indexPath.row == 0){
-//        postCell = [self.tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
-//        self.detailsView.post = self.post;
-//        [self.detailsView loadValues];
-//    } else {
+    if(indexPath.row == 0){
+        postCell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+        postCell.detailsView.post = self.post;
+        [postCell.detailsView loadValues];
+        [self.tableView sizeToFit];
+
+    } else {
         commentCell = [self.tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
         commentCell.commentLabel.text = @"bruh";
-//    }
-    [self.tableView sizeToFit];
+        [self.tableView sizeToFit];
+
+    }
     return postCell ? postCell : commentCell;
 }
 
