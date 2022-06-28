@@ -10,6 +10,7 @@
 		7F34D2B4286A629A0009DF55 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F34D2B3286A629A0009DF55 /* PostCell.m */; };
 		7F34D2B5286A64100009DF55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F3286A374F00A3A999 /* Assets.xcassets */; };
 		7F34D2B8286A69250009DF55 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F34D2B7286A69250009DF55 /* ComposeViewController.m */; };
+		7F34D2BB286A8F200009DF55 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F34D2BA286A8F200009DF55 /* Post.m */; };
 		7FBDB2E9286A374E00A3A999 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2E8286A374E00A3A999 /* AppDelegate.m */; };
 		7FBDB2EC286A374E00A3A999 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2EB286A374E00A3A999 /* SceneDelegate.m */; };
 		7FBDB2FA286A374F00A3A999 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F9286A374F00A3A999 /* main.m */; };
@@ -29,6 +30,8 @@
 		7F34D2B3286A629A0009DF55 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		7F34D2B6286A69250009DF55 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		7F34D2B7286A69250009DF55 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		7F34D2BA286A8F200009DF55 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		7F34D2BD286A8F590009DF55 /* Post.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; path = Post.h; sourceTree = "<group>"; };
 		7FBDB2E4286A374E00A3A999 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBDB2E7286A374E00A3A999 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7FBDB2E8286A374E00A3A999 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,6 +87,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7F34D2B9286A8F060009DF55 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F34D2BA286A8F200009DF55 /* Post.m */,
+				7F34D2BD286A8F590009DF55 /* Post.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7FBDB2DB286A374E00A3A999 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 				7FBDB2E8286A374E00A3A999 /* AppDelegate.m */,
 				7FBDB2EA286A374E00A3A999 /* SceneDelegate.h */,
 				7FBDB2EB286A374E00A3A999 /* SceneDelegate.m */,
+				7F34D2B9286A8F060009DF55 /* Models */,
 				7FBDB2F0286A374E00A3A999 /* Main.storyboard */,
 				7FBDB2F3286A374F00A3A999 /* Assets.xcassets */,
 				7FBDB2F5286A374F00A3A999 /* LaunchScreen.storyboard */,
@@ -256,6 +269,7 @@
 				7F34D2B8286A69250009DF55 /* ComposeViewController.m in Sources */,
 				7FBDB2EC286A374E00A3A999 /* SceneDelegate.m in Sources */,
 				7F34D2B4286A629A0009DF55 /* PostCell.m in Sources */,
+				7F34D2BB286A8F200009DF55 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K3R3WAQYL3;
@@ -425,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K3R3WAQYL3;

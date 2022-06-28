@@ -84,10 +84,10 @@
         <!--Navigation Controller-->
         <scene sceneID="kdb-wi-hkN">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" id="HEV-oA-qpT" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" modalPresentationStyle="fullScreen" id="HEV-oA-qpT" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="JOU-w9-V10"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Koq-y5-2CI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -107,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nXZ-eK-IIO">
-                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" id="7JF-Bd-roc" customClass="PostCell">
@@ -180,10 +180,10 @@
         <!--Navigation Controller-->
         <scene sceneID="RLV-tO-1Hi">
             <objects>
-                <navigationController storyboardIdentifier="composeNavController" id="oEl-ny-gAb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="composeNavController" modalPresentationStyle="fullScreen" id="oEl-ny-gAb" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="hxc-Ou-DLg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTo-tL-nmo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -199,22 +199,22 @@
             <objects>
                 <viewController id="qVj-Gk-UB0" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jqt-Ko-6gH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NJm-x1-ORe">
-                                <rect key="frame" x="100" y="194" width="240" height="128"/>
+                                <rect key="frame" x="60" y="101" width="327" height="286"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="3Zf-Z5-LD9" appends="YES" id="Tgd-xF-lRV"/>
                                 </connections>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write a Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hlg-bT-s7N">
-                                <rect key="frame" x="60" y="408" width="240" height="128"/>
+                                <rect key="frame" x="60" y="408" width="334" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -249,10 +249,14 @@
                                     <action selector="didShare:" destination="qVj-Gk-UB0" eventType="touchUpInside" id="s3Q-Ce-Okf"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <segue destination="SOg-Kw-XjC" kind="show" identifier="postedSegue" id="tVk-uF-bEf"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="postImageView" destination="NJm-x1-ORe" id="dD3-f8-iWf"/>
+                        <outlet property="postTextView" destination="Hlg-bT-s7N" id="Xrx-me-VtH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQx-su-FSU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -267,20 +271,26 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3310" y="78"/>
+            <point key="canvasLocation" x="3308.6956521739135" y="77.678571428571431"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tVk-uF-bEf"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

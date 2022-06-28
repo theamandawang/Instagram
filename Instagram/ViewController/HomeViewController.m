@@ -36,11 +36,7 @@
 */
 
 - (IBAction)didCompose:(id)sender {
-//    [self performSegueWithIdentifier:@"composeSegue" sender:nil];
-    SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"composeNavController"];
-    sceneDelegate.window.rootViewController = navigationController;
+    [self performSegueWithIdentifier:@"composeSegue" sender:nil];
 }
 - (IBAction)didLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {

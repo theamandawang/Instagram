@@ -7,16 +7,33 @@
 
 #import "ComposeViewController.h"
 #import "SceneDelegate.h"
-@interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+#import "Parse/Parse.h"
+#import "Post.h"
+@interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
+@property (weak, nonatomic) IBOutlet UITextView *postTextView;
 
 @end
 
 @implementation ComposeViewController
-
+NSString * defaultText = @"Write a Caption";
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.postTextView.delegate = self;
     // Do any additional setup after loading the view.
+}
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 - (IBAction)didCancel:(id)sender {
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
@@ -26,7 +43,31 @@
 
 }
 - (IBAction)didShare:(id)sender {
-    NSLog(@"tap share");
+    if(![self checkEmpty]){
+        Post * newPost = [[Post alloc] initWithClassName:@"Post"];
+        newPost.image = [PFFileObject fileObjectWithName:@"photo.png" data:UIImagePNGRepresentation(self.postImageView.image)];
+        newPost.caption = self.postTextView.text;
+        newPost.userID = [PFUser currentUser].username;
+    /*
+        PFObject *post = [[PFObject alloc] initWithClassName:@"Post"];
+//      post[@"postID"] = @"PostID";
+        //Parse generates its own object id that i will use instead of a uuid for the postid
+        post[@"userID"] = [PFUser currentUser].username;
+        PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"photo.png"    data:UIImagePNGRepresentation(self.postImageView.image)];
+        post[@"image"] = imageFile;
+        post[@"caption"] = self.postTextView.text;
+     */
+        [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // The object has been saved.
+                NSLog(@"posted");
+            }
+            else {
+                NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+        [self performSegueWithIdentifier:@"postedSegue" sender:nil];
+    }
 }
 
 /*
@@ -42,31 +83,92 @@
     [self.view endEditing:true];
 }
 - (IBAction)didTapImage:(id)sender {
-    NSLog(@"tapped image");
+    UIAlertController *alert =
+        [UIAlertController
+                    alertControllerWithTitle:@"Upload Photo or Take Photo"
+                    message:@"Would you like to upload a photo from your photos library or take one with your camera?"
+                    preferredStyle:(UIAlertControllerStyleAlert)
+        ];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction * _Nonnull action) {
+                                        // handle cancel response here. Doing nothing will dismiss the view.
+                                    }];
+    [alert addAction:cancelAction];
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Use Camera"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+        [self openCamera];
+                                                      }];
+    [alert addAction:cameraAction];
+    UIAlertAction *libraryAction = [UIAlertAction
+                                    actionWithTitle:@"Use Library"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * _Nonnull action) {
+                                        [self openLibrary];
+                                    }];
+    [alert addAction:libraryAction];
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
+}
+- (void) openCamera {
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
+        [self openLibrary];
+        return;
+    }
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-
-    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }
-    else {
-        NSLog(@"Camera 🚫 available so we will use photo library instead");
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+- (void) openLibrary {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
+
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-
+    UIImage *editedImage = [self resizeImage:originalImage withSize:CGSizeMake(360.0, 360.0)];
+//    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     self.postImageView.image = editedImage;
-    
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    if([textView.text isEqual:@"Write a Caption"]){
+        [textView setText:@""];
+    }
+}
+-(bool) checkEmpty {
+    if([self.postTextView.text isEqual:@""] || [self.postTextView.text isEqualToString:defaultText]|| !self.postImageView.image){
+        UIAlertController *alert =
+            [UIAlertController
+                        alertControllerWithTitle:@"Empty post image or caption"
+                        message:@"Image and caption fields cannot be empty."
+                        preferredStyle:(UIAlertControllerStyleAlert)
+            ];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Try again"
+                                                            style:UIAlertActionStyleDestructive
+                                                          handler:^(UIAlertAction * _Nonnull action) {
+                                                          }];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+        }];
+        return true;
+    }
+    return false;
+}
+
 @end
