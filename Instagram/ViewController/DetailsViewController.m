@@ -22,10 +22,8 @@
     self.tableView.delegate = self;
     UINib *nib = [UINib nibWithNibName:@"PostCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"PostCell"];
-    [self.tableView setEstimatedRowHeight:200.0];
     [self.tableView reloadData];
     [self.tableView sizeToFit];
-    [self.tableView setRowHeight:300.0];
     // Do any additional setup after loading the view.
 }
 
