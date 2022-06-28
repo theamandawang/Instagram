@@ -6,16 +6,22 @@
 //
 
 #import "DetailsViewController.h"
-
+#import "CommentCell.h"
 @interface DetailsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation DetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.detailsView.post = self.post;
+//    [self.detailsView loadValues];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.tableView reloadData];
+    [self.tableView sizeToFit];
+    [self.tableView setRowHeight:300.0];
     // Do any additional setup after loading the view.
 }
 
@@ -30,12 +36,22 @@
 */
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell * cell = [[UITableViewCell alloc] init];
-    return cell;
+    UITableViewCell *postCell = nil;
+    CommentCell *commentCell = nil;
+//    if(indexPath.row == 0){
+//        postCell = [self.tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
+//        self.detailsView.post = self.post;
+//        [self.detailsView loadValues];
+//    } else {
+        commentCell = [self.tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+        commentCell.commentLabel.text = @"bruh";
+//    }
+    [self.tableView sizeToFit];
+    return postCell ? postCell : commentCell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 10;
 }
 
 @end

@@ -38,7 +38,7 @@
     return self;
 }
 - (void) loadValues {
-    self.userLabel.text = self.post[@"user"];
+    self.userLabel.text = self.post[@"userID"];
     self.captionLabel.text = self.post[@"caption"];
     self.photoImageView.file = self.post[@"image"];
     [self.photoImageView loadInBackground];

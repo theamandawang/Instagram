@@ -6,13 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Parse/Parse.h"
-#import "Parse/PFImageView.h"
+#import "DetailsView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PostCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet PFImageView *photoImageView;
-@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet DetailsView *detailsView;
+
 @end
 
 NS_ASSUME_NONNULL_END

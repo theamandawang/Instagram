@@ -22,7 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rF5-Ws-dxW" customClass="PFImageView">
-                    <rect key="frame" x="20" y="64" width="374" height="287"/>
+                    <rect key="frame" x="20" y="64" width="374" height="400"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="400" id="3Ud-Qd-JHX"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-AW-8gX">
                     <rect key="frame" x="10" y="10" width="394" height="21"/>
@@ -31,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-Wp-NWM">
-                    <rect key="frame" x="10" y="831" width="394" height="21"/>
+                    <rect key="frame" x="10" y="464" width="394" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -42,11 +45,11 @@
             <constraints>
                 <constraint firstItem="Vg5-AW-8gX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="AqC-Os-i75"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vg5-AW-8gX" secondAttribute="trailing" constant="10" id="GfW-Ch-MDG"/>
-                <constraint firstItem="nNc-Wp-NWM" firstAttribute="top" secondItem="rF5-Ws-dxW" secondAttribute="bottom" constant="480" id="KbJ-TC-Jxq"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nNc-Wp-NWM" secondAttribute="bottom" constant="10" id="Kcd-z3-86I"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nNc-Wp-NWM" secondAttribute="bottom" id="Kcd-z3-86I"/>
                 <constraint firstItem="nNc-Wp-NWM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="QI0-H9-qOe"/>
                 <constraint firstItem="Vg5-AW-8gX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="TgV-gY-5zP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rF5-Ws-dxW" secondAttribute="trailing" constant="20" id="UYK-52-92g"/>
+                <constraint firstItem="nNc-Wp-NWM" firstAttribute="top" secondItem="rF5-Ws-dxW" secondAttribute="bottom" id="aeT-Fz-5eX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nNc-Wp-NWM" secondAttribute="trailing" constant="10" id="gsO-Mg-Ht1"/>
                 <constraint firstItem="rF5-Ws-dxW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="hRo-78-cdq"/>
                 <constraint firstItem="rF5-Ws-dxW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="hfx-HS-gSW"/>

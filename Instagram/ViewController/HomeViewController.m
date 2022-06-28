@@ -11,6 +11,7 @@
 #import "SceneDelegate.h"
 #import "PostCell.h"
 #import "Post.h"
+#import "DetailsViewController.h"
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
@@ -24,11 +25,14 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self refreshData];
+    UINib *nib = [UINib nibWithNibName:@"PostCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"PostCell"];
+    [self.tableView setEstimatedRowHeight:200.0];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     [self.refreshControl addTarget:self action:@selector(queryData) forControlEvents:UIControlEventValueChanged];
     [self refreshData];
+
     // Do any additional setup after loading the view.
 }
 - (void) refreshData {
@@ -94,14 +98,22 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    cell.captionLabel.text = self.posts[indexPath.row][@"caption"];
-    cell.photoImageView.file = self.posts[indexPath.row][@"image"];
-    [cell.photoImageView loadInBackground];
+    cell.detailsView.post = self.posts[indexPath.row];
+    [cell.detailsView loadValues];
+    [self.tableView sizeToFit];
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    DetailsViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+    viewController.post = self.posts[indexPath.row];
+    [self.navigationController pushViewController: viewController animated:YES];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 @end

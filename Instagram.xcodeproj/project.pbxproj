@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F34D2B4286A629A0009DF55 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F34D2B3286A629A0009DF55 /* PostCell.m */; };
 		7F34D2B5286A64100009DF55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F3286A374F00A3A999 /* Assets.xcassets */; };
 		7F34D2B8286A69250009DF55 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F34D2B7286A69250009DF55 /* ComposeViewController.m */; };
 		7F34D2BB286A8F200009DF55 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F34D2BA286A8F200009DF55 /* Post.m */; };
@@ -22,6 +21,9 @@
 		7FCC065B286AC5A100634104 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC065A286AC5A100634104 /* DetailsViewController.m */; };
 		7FCC065D286AC68700634104 /* DetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC065C286AC68700634104 /* DetailsView.xib */; };
 		7FCC0660286AC6C300634104 /* DetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC065F286AC6C300634104 /* DetailsView.m */; };
+		7FCC0663286B6B1900634104 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC0662286B6B1900634104 /* CommentCell.m */; };
+		7FCC0667286B758200634104 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC0665286B758200634104 /* PostCell.m */; };
+		7FCC0668286B758200634104 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC0666286B758200634104 /* PostCell.xib */; };
 		D2B8EA4B3AAE17B5E547DE39 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BF72BA0B206293EA745420 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +31,6 @@
 		02D7EA46F6517A1CC253DABC /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		52BF72BA0B206293EA745420 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7528903C40B3A2B8959138A1 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
-		7F34D2B2286A629A0009DF55 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
-		7F34D2B3286A629A0009DF55 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		7F34D2B6286A69250009DF55 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		7F34D2B7286A69250009DF55 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		7F34D2BA286A8F200009DF55 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
@@ -55,6 +55,11 @@
 		7FCC065C286AC68700634104 /* DetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsView.xib; sourceTree = "<group>"; };
 		7FCC065E286AC6C300634104 /* DetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsView.h; sourceTree = "<group>"; };
 		7FCC065F286AC6C300634104 /* DetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsView.m; sourceTree = "<group>"; };
+		7FCC0661286B6B1900634104 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		7FCC0662286B6B1900634104 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		7FCC0664286B758200634104 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		7FCC0665286B758200634104 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		7FCC0666286B758200634104 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +94,14 @@
 		7F34D2B1286A62780009DF55 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7F34D2B2286A629A0009DF55 /* PostCell.h */,
-				7F34D2B3286A629A0009DF55 /* PostCell.m */,
 				7FCC065E286AC6C300634104 /* DetailsView.h */,
 				7FCC065F286AC6C300634104 /* DetailsView.m */,
 				7FCC065C286AC68700634104 /* DetailsView.xib */,
+				7FCC0661286B6B1900634104 /* CommentCell.h */,
+				7FCC0662286B6B1900634104 /* CommentCell.m */,
+				7FCC0664286B758200634104 /* PostCell.h */,
+				7FCC0665286B758200634104 /* PostCell.m */,
+				7FCC0666286B758200634104 /* PostCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FCC0668286B758200634104 /* PostCell.xib in Resources */,
 				7F34D2B5286A64100009DF55 /* Assets.xcassets in Resources */,
 				7FBDB313286A57E600A3A999 /* Keys.plist in Resources */,
 				7FBDB311286A57E000A3A999 /* Main.storyboard in Resources */,
@@ -282,9 +291,10 @@
 				7FBDB30A286A4B6B00A3A999 /* HomeViewController.m in Sources */,
 				7F34D2B8286A69250009DF55 /* ComposeViewController.m in Sources */,
 				7FCC0660286AC6C300634104 /* DetailsView.m in Sources */,
+				7FCC0667286B758200634104 /* PostCell.m in Sources */,
 				7FBDB2EC286A374E00A3A999 /* SceneDelegate.m in Sources */,
+				7FCC0663286B6B1900634104 /* CommentCell.m in Sources */,
 				7FCC065B286AC5A100634104 /* DetailsViewController.m in Sources */,
-				7F34D2B4286A629A0009DF55 /* PostCell.m in Sources */,
 				7F34D2BB286A8F200009DF55 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
