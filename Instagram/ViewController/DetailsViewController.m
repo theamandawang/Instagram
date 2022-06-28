@@ -23,7 +23,6 @@
     UINib *nib = [UINib nibWithNibName:@"PostCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"PostCell"];
     [self.tableView reloadData];
-    [self.tableView sizeToFit];
     // Do any additional setup after loading the view.
 }
 
@@ -44,12 +43,11 @@
         postCell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
         postCell.detailsView.post = self.post;
         [postCell.detailsView loadValues];
-        [self.tableView sizeToFit];
+        [postCell.detailsView showDate];
 
     } else {
         commentCell = [self.tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
         commentCell.commentLabel.text = @"bruh";
-        [self.tableView sizeToFit];
 
     }
     return postCell ? postCell : commentCell;

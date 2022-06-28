@@ -12,6 +12,7 @@
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UITextView *postTextView;
+@property (strong, nonatomic) UIImage *image;
 
 @end
 
@@ -46,18 +47,9 @@ NSString * defaultText = @"Write a Caption";
     if(![self checkEmpty]){
         Post * newPost = [[Post alloc] initWithClassName:@"Post"];
 //        newPost.image = [PFFileObject fileObjectWithName:@"photo.png" data:UIImagePNGRepresentation(self.postImageView.image)];
-        newPost.image = [ComposeViewController getPFFileFromImage:self.postImageView.image];
+        newPost.image = [ComposeViewController getPFFileFromImage:self.image];
         newPost.caption = self.postTextView.text;
         newPost.userID = [PFUser currentUser].username;
-    /*
-        PFObject *post = [[PFObject alloc] initWithClassName:@"Post"];
-//      post[@"postID"] = @"PostID";
-        //Parse generates its own object id that i will use instead of a uuid for the postid
-        post[@"userID"] = [PFUser currentUser].username;
-        PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"photo.png"    data:UIImagePNGRepresentation(self.postImageView.image)];
-        post[@"image"] = imageFile;
-        post[@"caption"] = self.postTextView.text;
-     */
         [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 // The object has been saved.
@@ -140,9 +132,9 @@ NSString * defaultText = @"Write a Caption";
     
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = [self resizeImage:originalImage withSize:CGSizeMake(360.0, 360.0)];
 //    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    self.postImageView.image = editedImage;
+    self.image = originalImage;
+    self.postImageView.image = originalImage;
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -164,7 +156,7 @@ NSString * defaultText = @"Write a Caption";
     return [PFFileObject fileObjectWithName:@"image.jpeg" data:imageData];
 }
 -(bool) checkEmpty {
-    if([self.postTextView.text isEqual:@""] || [self.postTextView.text isEqualToString:defaultText]|| !self.postImageView.image){
+    if([self.postTextView.text isEqual:@""] || [self.postTextView.text isEqualToString:defaultText]|| !self.image){
         UIAlertController *alert =
             [UIAlertController
                         alertControllerWithTitle:@"Empty post image or caption"

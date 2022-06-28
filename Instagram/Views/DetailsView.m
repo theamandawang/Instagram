@@ -42,6 +42,21 @@
     self.captionLabel.text = self.post[@"caption"];
     self.photoImageView.file = self.post[@"image"];
     [self.photoImageView loadInBackground];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"h:mm a MMM d, yyyy"];
+    self.createdAtLabel.text =  [formatter stringFromDate: self.post.createdAt];
+//    [self.dateLabelTopToCaptionLabelBottom setActive:false];
+//    [self.dateLabelBottomToSafeView setActive:false];
+//    [self.captionLabelBottomToSafeView setActive:true];
+    [self.createdAtLabel setHidden:true];
+
+}
+- (void) showDate {
+//    [self.captionLabelBottomToSafeView setActive:false];
+//    [self.dateLabelTopToCaptionLabelBottom setActive:true];
+//    [self.dateLabelBottomToSafeView setActive:true];
+
+    [self.createdAtLabel setHidden:false];
 }
 
 

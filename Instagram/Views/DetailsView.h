@@ -19,6 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dateLabelTopToCaptionLabelBottom;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *captionLabelBottomToSafeView;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dateLabelBottomToSafeView;
+
+- (void) showDate;
 - (void) loadValues;
 @end
 
