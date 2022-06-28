@@ -10,8 +10,11 @@
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
 #import "PostCell.h"
+#import "Post.h"
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) NSMutableArray *posts;
 
 @end
 
@@ -21,8 +24,44 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView reloadData];
+    [self refreshData];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.refreshControl addTarget:self action:@selector(queryData) forControlEvents:UIControlEventValueChanged];
+    
     // Do any additional setup after loading the view.
+}
+- (void) refreshData {
+    [self queryData];
+    [self.tableView reloadData];
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self refreshData];
+}
+
+- (void) queryData {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+//    [query whereKey:@"likesCount" greaterThan:@100];
+    query.limit = 20;
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"objectID"];
+    [query includeKey:@"userID"];
+    [query includeKey:@"image"];
+    [query includeKey:@"caption"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            self.posts = (NSMutableArray *)posts;
+            [self.tableView reloadData];
+        }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    [self.refreshControl endRefreshing];
+
 }
 
 /*
@@ -55,12 +94,14 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    cell.captionLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
+    cell.captionLabel.text = self.posts[indexPath.row][@"caption"];
+    cell.photoImageView.file = self.posts[indexPath.row][@"image"];
+    [cell.photoImageView loadInBackground];
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.posts.count;
 }
 
 @end

@@ -19,6 +19,9 @@
 		7FBDB311286A57E000A3A999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F0286A374E00A3A999 /* Main.storyboard */; };
 		7FBDB312286A57E000A3A999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB2F5286A374F00A3A999 /* LaunchScreen.storyboard */; };
 		7FBDB313286A57E600A3A999 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FBDB302286A3B0000A3A999 /* Keys.plist */; };
+		7FCC065B286AC5A100634104 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC065A286AC5A100634104 /* DetailsViewController.m */; };
+		7FCC065D286AC68700634104 /* DetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC065C286AC68700634104 /* DetailsView.xib */; };
+		7FCC0660286AC6C300634104 /* DetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC065F286AC6C300634104 /* DetailsView.m */; };
 		D2B8EA4B3AAE17B5E547DE39 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BF72BA0B206293EA745420 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,11 @@
 		7FBDB306286A473A00A3A999 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7FBDB308286A4B6B00A3A999 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		7FBDB309286A4B6B00A3A999 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		7FCC0659286AC5A100634104 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		7FCC065A286AC5A100634104 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		7FCC065C286AC68700634104 /* DetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsView.xib; sourceTree = "<group>"; };
+		7FCC065E286AC6C300634104 /* DetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsView.h; sourceTree = "<group>"; };
+		7FCC065F286AC6C300634104 /* DetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,8 @@
 			children = (
 				7F34D2B2286A629A0009DF55 /* PostCell.h */,
 				7F34D2B3286A629A0009DF55 /* PostCell.m */,
+				7FCC065E286AC6C300634104 /* DetailsView.h */,
+				7FCC065F286AC6C300634104 /* DetailsView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -92,6 +102,7 @@
 			children = (
 				7F34D2BA286A8F200009DF55 /* Post.m */,
 				7F34D2BD286A8F590009DF55 /* Post.h */,
+				7FCC065C286AC68700634104 /* DetailsView.xib */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -143,6 +154,8 @@
 				7FBDB309286A4B6B00A3A999 /* HomeViewController.m */,
 				7F34D2B6286A69250009DF55 /* ComposeViewController.h */,
 				7F34D2B7286A69250009DF55 /* ComposeViewController.m */,
+				7FCC0659286AC5A100634104 /* DetailsViewController.h */,
+				7FCC065A286AC5A100634104 /* DetailsViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -210,6 +223,7 @@
 				7FBDB313286A57E600A3A999 /* Keys.plist in Resources */,
 				7FBDB311286A57E000A3A999 /* Main.storyboard in Resources */,
 				7FBDB312286A57E000A3A999 /* LaunchScreen.storyboard in Resources */,
+				7FCC065D286AC68700634104 /* DetailsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +281,9 @@
 				7FBDB2FA286A374F00A3A999 /* main.m in Sources */,
 				7FBDB30A286A4B6B00A3A999 /* HomeViewController.m in Sources */,
 				7F34D2B8286A69250009DF55 /* ComposeViewController.m in Sources */,
+				7FCC0660286AC6C300634104 /* DetailsView.m in Sources */,
 				7FBDB2EC286A374E00A3A999 /* SceneDelegate.m in Sources */,
+				7FCC065B286AC5A100634104 /* DetailsViewController.m in Sources */,
 				7F34D2B4286A629A0009DF55 /* PostCell.m in Sources */,
 				7F34D2BB286A8F200009DF55 /* Post.m in Sources */,
 			);
