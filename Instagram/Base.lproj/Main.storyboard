@@ -241,50 +241,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-BY-Ime">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-BY-Ime">
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnP-b1-ucb">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="NJm-x1-ORe">
-                                                <rect key="frame" x="0.0" y="20" width="414" height="375"/>
-                                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="375" id="yyJ-U0-615"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="3Zf-Z5-LD9" appends="YES" id="Tgd-xF-lRV"/>
-                                                </connections>
-                                            </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hlg-bT-s7N">
-                                                <rect key="frame" x="10" y="410" width="394" height="361"/>
-                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="urZ-3m-z8C">
+                                                <rect key="frame" x="10" y="0.0" width="394" height="674"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="NJm-x1-ORe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="250"/>
+                                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="250" id="yyJ-U0-615"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="3Zf-Z5-LD9" appends="YES" id="Tgd-xF-lRV"/>
+                                                        </connections>
+                                                    </imageView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hlg-bT-s7N">
+                                                        <rect key="frame" x="0.0" y="265" width="394" height="409"/>
+                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="NJm-x1-ORe" firstAttribute="top" secondItem="OnP-b1-ucb" secondAttribute="top" constant="20" symbolic="YES" id="4Ca-G8-DOZ"/>
-                                            <constraint firstItem="Hlg-bT-s7N" firstAttribute="leading" secondItem="OnP-b1-ucb" secondAttribute="leading" constant="10" id="G8k-zd-ntf"/>
-                                            <constraint firstAttribute="trailing" secondItem="NJm-x1-ORe" secondAttribute="trailing" id="GZT-Xd-tD0"/>
-                                            <constraint firstItem="NJm-x1-ORe" firstAttribute="leading" secondItem="OnP-b1-ucb" secondAttribute="leading" id="Jg1-7j-rfi"/>
-                                            <constraint firstAttribute="bottom" secondItem="Hlg-bT-s7N" secondAttribute="bottom" constant="15" id="Rdt-Z8-Mln"/>
-                                            <constraint firstAttribute="trailing" secondItem="Hlg-bT-s7N" secondAttribute="trailing" constant="10" id="Sl4-nh-xzO"/>
-                                            <constraint firstItem="Hlg-bT-s7N" firstAttribute="top" secondItem="NJm-x1-ORe" secondAttribute="bottom" constant="15" id="TJO-rP-HGh"/>
-                                            <constraint firstAttribute="height" constant="786" id="rWM-ge-8tS"/>
-                                            <constraint firstAttribute="width" constant="414" id="zEd-G2-qq0"/>
+                                            <constraint firstAttribute="bottom" secondItem="urZ-3m-z8C" secondAttribute="bottom" constant="100" id="0Vk-SR-0N7"/>
+                                            <constraint firstItem="urZ-3m-z8C" firstAttribute="leading" secondItem="OnP-b1-ucb" secondAttribute="leading" constant="10" id="Nvc-2N-Q5S"/>
+                                            <constraint firstAttribute="height" constant="774" id="akR-Bw-Alp"/>
+                                            <constraint firstAttribute="trailing" secondItem="urZ-3m-z8C" secondAttribute="trailing" constant="10" id="mIA-gW-u3b"/>
+                                            <constraint firstItem="urZ-3m-z8C" firstAttribute="top" secondItem="OnP-b1-ucb" secondAttribute="top" id="pMx-xL-vap"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="top" secondItem="qsF-2L-A25" secondAttribute="top" id="AyE-fN-OtA"/>
-                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="trailing" secondItem="qsF-2L-A25" secondAttribute="trailing" id="d6v-2R-A25"/>
-                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="leading" secondItem="qsF-2L-A25" secondAttribute="leading" id="n97-R4-h1U"/>
-                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="bottom" secondItem="qsF-2L-A25" secondAttribute="bottom" id="nfd-H6-tX7"/>
+                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="leading" secondItem="Jom-pl-x0n" secondAttribute="leading" id="N76-dH-gQy"/>
+                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="top" secondItem="qsF-2L-A25" secondAttribute="top" id="ON5-HM-OvJ"/>
+                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="bottom" secondItem="qsF-2L-A25" secondAttribute="bottom" id="WSc-hu-JND"/>
+                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="width" secondItem="qsF-2L-A25" secondAttribute="width" id="o5f-oQ-2xz"/>
+                                    <constraint firstItem="OnP-b1-ucb" firstAttribute="trailing" secondItem="Jom-pl-x0n" secondAttribute="trailing" id="wcz-w1-yGL"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="qsF-2L-A25"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Jom-pl-x0n"/>
@@ -295,9 +297,9 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cdR-BY-Ime" firstAttribute="top" secondItem="nLk-R1-ujQ" secondAttribute="top" id="0QX-CH-uhB"/>
-                            <constraint firstItem="cdR-BY-Ime" firstAttribute="leading" secondItem="jqt-Ko-6gH" secondAttribute="leading" id="354-oV-Vvx"/>
+                            <constraint firstItem="cdR-BY-Ime" firstAttribute="leading" secondItem="nLk-R1-ujQ" secondAttribute="leading" id="354-oV-Vvx"/>
                             <constraint firstItem="nLk-R1-ujQ" firstAttribute="bottom" secondItem="cdR-BY-Ime" secondAttribute="bottom" id="AVM-wM-uJ1"/>
-                            <constraint firstAttribute="trailing" secondItem="cdR-BY-Ime" secondAttribute="trailing" id="nZN-OA-T10"/>
+                            <constraint firstItem="nLk-R1-ujQ" firstAttribute="trailing" secondItem="cdR-BY-Ime" secondAttribute="trailing" id="nZN-OA-T10"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="MBv-TZ-q2e" appends="YES" id="igf-vd-zpE"/>
