@@ -11,6 +11,7 @@
 
     @property (nonatomic, strong) NSString *userID;
     @property (nonatomic, strong) NSString *caption;
+    @property (nonatomic, strong) NSDate *createdAt;
     @property (nonatomic, strong) PFFileObject *image;
     
 @end

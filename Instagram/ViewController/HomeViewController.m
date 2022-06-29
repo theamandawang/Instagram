@@ -20,7 +20,7 @@
 @end
 
 @implementation HomeViewController
-
+int QUERY_SIZE = 20;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
@@ -46,8 +46,7 @@
 
 - (void) queryData {
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-//    [query whereKey:@"likesCount" greaterThan:@100];
-    query.limit = 20;
+    query.limit = QUERY_SIZE;
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"objectID"];
     [query includeKey:@"userID"];
@@ -66,6 +65,28 @@
     }];
     [self.refreshControl endRefreshing];
 
+}
+
+- (void) queryAdditionalData:(NSDate *)oldest {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query whereKey:@"createdAt" lessThan:oldest];
+    query.limit = QUERY_SIZE;
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"objectID"];
+    [query includeKey:@"userID"];
+    [query includeKey:@"image"];
+    [query includeKey:@"caption"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            [self.posts addObjectsFromArray:posts];
+            [self.tableView reloadData];
+        }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 /*
@@ -98,15 +119,20 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    cell.detailsView.post = self.posts[indexPath.row];
+    Post * temp = self.posts[indexPath.row];
+    cell.detailsView.post = temp;
     [cell.detailsView loadValues];
     [self.tableView sizeToFit];
+    if(indexPath.row >= self.posts.count - 1){
+        [self queryAdditionalData:temp.createdAt];
+    }
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DetailsViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];

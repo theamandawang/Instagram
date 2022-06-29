@@ -13,6 +13,7 @@
     @dynamic userID;
     @dynamic caption;
     @dynamic image;
+    @dynamic createdAt;
 
     + (nonnull NSString *)parseClassName {
         return @"Post";

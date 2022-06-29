@@ -127,7 +127,6 @@ NSString * defaultText = @"Write a Caption";
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
@@ -174,6 +173,9 @@ NSString * defaultText = @"Write a Caption";
         return true;
     }
     return false;
+}
+- (IBAction)didPressAddPhoto:(id)sender {
+    [self didTapImage:sender];
 }
 
 @end
