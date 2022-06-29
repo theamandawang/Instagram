@@ -16,8 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.detailsView.post = self.post;
-//    [self.detailsView loadValues];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     UINib *nib = [UINib nibWithNibName:@"PostCell" bundle:nil];

@@ -20,8 +20,9 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     if([PFUser currentUser]){
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UINavigationController *loginNav = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-        self.window.rootViewController = loginNav;
+        UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        self.window.rootViewController = tabBarController;
+
     }
 }
 

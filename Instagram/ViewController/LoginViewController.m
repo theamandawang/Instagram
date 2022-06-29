@@ -54,8 +54,8 @@
 //                [self performSegueWithIdentifier:@"authenticatedSegue" sender:nil];
                 SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-                sceneDelegate.window.rootViewController = navigationController;
+                UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+                sceneDelegate.window.rootViewController = tabBarController;
             }
         }];
         
@@ -79,8 +79,8 @@
 //                    [self performSegueWithIdentifier:@"authenticatedSegue" sender:nil];
                     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-                    sceneDelegate.window.rootViewController = navigationController;
+                    UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+                    sceneDelegate.window.rootViewController = tabBarController;
                     // manually segue to logged in view
                 }
         }];

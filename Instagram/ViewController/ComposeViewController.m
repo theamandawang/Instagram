@@ -39,8 +39,8 @@ NSString * defaultText = @"Write a Caption";
 - (IBAction)didCancel:(id)sender {
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-    sceneDelegate.window.rootViewController = navigationController;
+    UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    sceneDelegate.window.rootViewController = tabBarController;
 
 }
 - (IBAction)didShare:(id)sender {
@@ -59,7 +59,11 @@ NSString * defaultText = @"Write a Caption";
                 NSLog(@"%@", error.localizedDescription);
             }
         }];
-        [self performSegueWithIdentifier:@"postedSegue" sender:nil];
+        SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        sceneDelegate.window.rootViewController = tabBarController;
+
     }
 }
 
