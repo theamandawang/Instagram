@@ -119,13 +119,16 @@ const int QUERY_SIZE = 20;
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    Post * temp = self.posts[indexPath.row];
-    cell.detailsView.post = temp;
-    [cell.detailsView loadValues];
-    [self.tableView sizeToFit];
-    if(indexPath.row >= self.posts.count - 1){
-        [self queryAdditionalData:temp.createdAt];
+    if(self.posts){
+        Post * temp = self.posts[indexPath.row];
+        cell.detailsView.post = temp;
+        [cell.detailsView loadValues];
+        [self.tableView sizeToFit];
+        if(indexPath.row >= self.posts.count - 1){
+            [self queryAdditionalData:temp.createdAt];
+        }
     }
+   
     return cell;
 }
 

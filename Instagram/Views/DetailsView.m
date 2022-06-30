@@ -6,7 +6,7 @@
 //
 
 #import "DetailsView.h"
-
+#import "User.h"
 @implementation DetailsView
 
 /*
@@ -34,7 +34,6 @@
     [[NSBundle mainBundle] loadNibNamed: @"DetailsView" owner: self options:nil];
     [self addSubview: self.contentView];
     self.contentView.frame = self.bounds;
-    [self loadValues];
     return self;
 }
 - (void) loadValues {
@@ -42,6 +41,23 @@
     self.captionLabel.text = self.post[@"caption"];
     self.photoImageView.file = self.post[@"image"];
     [self.photoImageView loadInBackground];
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    query.limit = 1;
+
+    //[query whereKey:@"username" equalTo:self.post[@"userID"]];
+    //[query includeKey:@"image"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray<User *> *users, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"🤬🤬🤬🤬 request return nothing!");
+        } else {
+            NSLog(@"%@",  self.post[@"userID"]);
+            NSLog(@"%@",  @"BRUH");
+            if(users && users.count > 0){
+                self.profileImageView.file = users[0].image;
+                [self.profileImageView loadInBackground];
+            }
+        }
+    }];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"h:mm a MMM d, yyyy"];
     self.createdAtLabel.text =  [formatter stringFromDate: self.post.createdAt];
