@@ -9,11 +9,6 @@
 #import "User.h"
 @implementation User
     @dynamic username;
-//    @dynamic password;
+    @dynamic password;
     @dynamic image;
-
-//    + (nonnull NSString *)parseClassName {
-//        return @"User";
-//    }
-    
 @end

@@ -124,7 +124,7 @@ const int QUERY_SIZE = 20;
         cell.detailsView.post = temp;
         [cell.detailsView loadValues];
         [self.tableView sizeToFit];
-        if(indexPath.row >= self.posts.count - 1){
+        if(indexPath.row == self.posts.count - 1 && indexPath.row%QUERY_SIZE == 0){
             [self queryAdditionalData:temp.createdAt];
         }
     }

@@ -36,28 +36,32 @@
     self.contentView.frame = self.bounds;
     return self;
 }
-- (void) loadValues {
-    self.userLabel.text = self.post[@"userID"];
-    self.captionLabel.text = self.post[@"caption"];
-    self.photoImageView.file = self.post[@"image"];
-    [self.photoImageView loadInBackground];
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+- (void) getUserPFP {
+    PFQuery *query = [PFUser query];
     query.limit = 1;
 
-    //[query whereKey:@"username" equalTo:self.post[@"userID"]];
-    //[query includeKey:@"image"];
+    [query whereKey:@"username" equalTo:self.post[@"userID"]];
+    [query includeKey:@"image"];
     [query findObjectsInBackgroundWithBlock:^(NSArray<User *> *users, NSError * _Nullable error) {
         if(error){
             NSLog(@"🤬🤬🤬🤬 request return nothing!");
         } else {
-            NSLog(@"%@",  self.post[@"userID"]);
-            NSLog(@"%@",  @"BRUH");
             if(users && users.count > 0){
+                NSLog(@"🥶🥶🥶 YASSS!");
                 self.profileImageView.file = users[0].image;
                 [self.profileImageView loadInBackground];
             }
         }
     }];
+}
+- (void) loadValues {
+    self.userLabel.text = self.post[@"userID"];
+    self.captionLabel.text = self.post[@"caption"];
+    self.photoImageView.file = self.post[@"image"];
+    [self.photoImageView loadInBackground];
+    
+    //NOT SURE WHY THIS HAS TO BE PFUSER QUERY
+    [self getUserPFP];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"h:mm a MMM d, yyyy"];
     self.createdAtLabel.text =  [formatter stringFromDate: self.post.createdAt];
