@@ -7,9 +7,10 @@
 #import <UIKit/UIKit.h>
 
 #import "Parse/Parse.h"
-@interface User : PFObject<PFSubclassing>
+@interface User : PFUser
 
-    @property (nonatomic, strong) NSString *userID;
+    @property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *password;
     @property (nonatomic, strong) PFFileObject *image;
     
 @end

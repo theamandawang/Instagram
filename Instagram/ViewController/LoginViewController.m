@@ -8,7 +8,8 @@
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
 #import "SceneDelegate.h"
-
+#import "User.h"
+#import "Post.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passTextField;
@@ -24,11 +25,12 @@
                         message:@"Username and password fields cannot be empty."
                         preferredStyle:(UIAlertControllerStyleAlert)
             ];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok"
-                                                            style:UIAlertActionStyleCancel
-                                                          handler:^(UIAlertAction * _Nonnull action) {
-                                                                 // handle cancel response here. Doing nothing will dismiss the view.
-                                                          }];
+        UIAlertAction *cancelAction =
+            [UIAlertAction actionWithTitle:@"Ok"
+                        style:UIAlertActionStyleCancel
+                        handler:^(UIAlertAction * _Nonnull action) {
+                            // handle cancel response here. Doing nothing will dismiss the view.
+                        }];
         [alert addAction:cancelAction];
         [self presentViewController:alert animated:YES completion:^{
             // optional code for what happens after the alert controller has finished presenting
@@ -64,13 +66,12 @@
 }
 - (IBAction)didSignUp:(id)sender {
     if(![self checkEmpty]){
-        PFUser *newUser = [PFUser user];
+        User *newUser = [PFUser user];
             
             // set user properties
             newUser.username = self.userTextField.text;
             newUser.password = self.passTextField.text;
-            
-            // call sign up function on the object
+        newUser.image = [Post getPFFileFromImage: [UIImage imageNamed:@"image_placeholder"]];
             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
                 if (error != nil) {
                     NSLog(@"Error: %@", error.localizedDescription);

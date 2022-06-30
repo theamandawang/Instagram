@@ -47,7 +47,7 @@ NSString * defaultText = @"Write a Caption";
     if(![self checkEmpty]){
         Post * newPost = [[Post alloc] initWithClassName:@"Post"];
 //        newPost.image = [PFFileObject fileObjectWithName:@"photo.png" data:UIImagePNGRepresentation(self.postImageView.image)];
-        newPost.image = [ComposeViewController getPFFileFromImage:self.image];
+        newPost.image = [Post getPFFileFromImage:self.image];
         newPost.caption = self.postTextView.text;
         newPost.userID = [PFUser currentUser].username;
         [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -145,18 +145,6 @@ NSString * defaultText = @"Write a Caption";
     if([textView.text isEqual:@"Write a Caption"]){
         [textView setText:@""];
     }
-}
-+ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
-    // check if image is not nil
-    if (!image) {
-        return nil;
-    }
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
-    // get image data and check if that is not nil
-    if (!imageData) {
-        return nil;
-    }
-    return [PFFileObject fileObjectWithName:@"image.jpeg" data:imageData];
 }
 -(bool) checkEmpty {
     if([self.postTextView.text isEqual:@""] || [self.postTextView.text isEqualToString:defaultText]|| !self.image){

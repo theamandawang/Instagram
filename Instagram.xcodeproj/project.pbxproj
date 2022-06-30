@@ -27,6 +27,7 @@
 		7FCC066B286CFBA900634104 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC066A286CFBA900634104 /* ProfileViewController.m */; };
 		7FCC066D286CFE3600634104 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC066C286CFE3600634104 /* User.m */; };
 		7FCC0671286CFFD700634104 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC0670286CFFD700634104 /* Comment.m */; };
+		7FCC0674286D031400634104 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC0673286D031400634104 /* ProfileCell.m */; };
 		D2B8EA4B3AAE17B5E547DE39 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BF72BA0B206293EA745420 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		7FCC066E286CFE6300634104 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		7FCC066F286CFFA200634104 /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		7FCC0670286CFFD700634104 /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		7FCC0672286D031400634104 /* ProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		7FCC0673286D031400634104 /* ProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				7FCC0664286B758200634104 /* PostCell.h */,
 				7FCC0665286B758200634104 /* PostCell.m */,
 				7FCC0666286B758200634104 /* PostCell.xib */,
+				7FCC0672286D031400634104 /* ProfileCell.h */,
+				7FCC0673286D031400634104 /* ProfileCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				7FBDB307286A473A00A3A999 /* LoginViewController.m in Sources */,
 				7FBDB2E9286A374E00A3A999 /* AppDelegate.m in Sources */,
 				7FBDB2FA286A374F00A3A999 /* main.m in Sources */,
+				7FCC0674286D031400634104 /* ProfileCell.m in Sources */,
 				7FBDB30A286A4B6B00A3A999 /* HomeViewController.m in Sources */,
 				7F34D2B8286A69250009DF55 /* ComposeViewController.m in Sources */,
 				7FCC0660286AC6C300634104 /* DetailsView.m in Sources */,
